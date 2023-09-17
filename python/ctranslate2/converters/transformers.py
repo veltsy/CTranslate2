@@ -109,7 +109,7 @@ class TransformersConverter(Converter):
                     % (config_name, ", ".join(sorted(_MODEL_LOADERS.keys())))
                 )
 
-            model_class = getattr(transformers, loader.architecture_name)
+            model_class = transformers.AutoModelForCausalLM
             tokenizer_class = transformers.AutoTokenizer
 
             kwargs = {
