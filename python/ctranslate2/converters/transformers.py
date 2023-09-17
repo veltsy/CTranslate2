@@ -12,6 +12,7 @@ try:
     import huggingface_hub
     import torch
     import transformers
+    from transformers import AutoModelForCausalLM
 except ImportError:
     pass
 
@@ -109,7 +110,7 @@ class TransformersConverter(Converter):
                     % (config_name, ", ".join(sorted(_MODEL_LOADERS.keys())))
                 )
 
-            model_class = transformers.AutoModelForCausalLM
+            model_class = AutoModelForCausalLM
             tokenizer_class = transformers.AutoTokenizer
 
             kwargs = {
